@@ -19,7 +19,7 @@
           <td><%= group.description %></td>
           <td>
             <%= link_to("Edit", edit_group_path(group), class: "btn btn-primary btn-xs") %>
-            <%= link_to("Delete", groups_path(group), class: "btn btn-primary btn-xs",
+            <%= link_to("Delete", group_path(group), class: "btn btn-primary btn-xs",
                         method: :delete, data: {confirm: "Are You Sure?"})%>
           </td>
         </tr>
