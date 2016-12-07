@@ -22,9 +22,11 @@
           <td>#</td>
           <td><%= post.content %></td>
           <td>
-            <%= link_to("Edit", edit_group_post_path(post.group, post), class: "btn btn-primary btn-xs")%>
-            <%= link_to("Delete", group_post_path(post.group, post), class: "btn btn-primary btn-xs",
-                        method: :delete, data:{confirm: "Are You Sure?"})%>
+            <% if post.editable_by?(current_user)%>
+              <%= link_to("Edit", edit_group_post_path(post.group, post), class: "btn btn-primary btn-xs")%>
+              <%= link_to("Delete", group_post_path(post.group, post), class: "btn btn-primary btn-xs",
+                          method: :delete, data:{confirm: "Are You Sure?"})%>
+            <% end %>
           </td>
         </tr>
       <% end %>
